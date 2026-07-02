@@ -1,3 +1,19 @@
-<script setup></script>
+<script setup>
+// Import the application components
+import Navbar from "./components/Navbar.vue";
+// Import the Track player logic module
+import usePlayer from "./composables/usePlayer.js";
+// Import the global applications CSS styles
+import "./styles/global.css";
+// Import the App component CSS styles
+import "./styles/App.css";
+</script>
 
-<template></template>
+<template>
+  <div class="app-shell">
+    <Navbar />
+    <main class="appmain">
+      <RouterView />
+    </main>
+  </div>
+</template>
