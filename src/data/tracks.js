@@ -1,4 +1,4 @@
-const tracksList = [
+const trackList = [
   {
     id: 1,
     title: "Honeyglow",
@@ -241,4 +241,4 @@ const tracksList = [
   },
 ];
 
-export default tracksList;
+export default trackList;
