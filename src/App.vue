@@ -1,6 +1,7 @@
 <script setup>
 // Import the application components
 import Navbar from "./components/Navbar.vue";
+import PlayerBar from "./components/PlayerBar.vue";
 // Import the Track player logic module
 import usePlayer from "./composables/usePlayer.js";
 // Import the global applications CSS styles
@@ -15,5 +16,7 @@ import "./styles/App.css";
     <main class="appmain">
       <RouterView />
     </main>
+
+    <PlayerBar />
   </div>
 </template>
