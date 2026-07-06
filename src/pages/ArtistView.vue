@@ -4,9 +4,9 @@ import "../styles/pages/ArtistView.css";
 // Import the Vue.js functions
 import { computed } from "vue";
 // Import the Track player logic module
-import usePlayer from "../composables/usePlayer";
+import usePlayer from "../composables/usePlayer.js";
 
-// Deatructure needed functions from the shared composable
+// Destructure needed functions from the shared composable
 const { queue, play } = usePlayer();
 
 const artists = computed(() => {
@@ -14,8 +14,8 @@ const artists = computed(() => {
   queue.value.forEach((t, i) => {
     if (!map[t.artist])
       map[t.artist] = { name: t.artist, tracks: [], color: t.color };
+    map[t.artist].tracks.push({ ...t, index: i });
   });
-
   return Object.values(map);
 });
 </script>
@@ -34,8 +34,12 @@ const artists = computed(() => {
         <h3 class="artist-name">{{ artist.name }}</h3>
         <p class="artist-count">{{ artist.tracks.length }} tracks</p>
         <ul class="artist-tracks">
-          <li v-for="t in artist.tracks" :key="t.id" @click="play(t.index)">
-            {{ t.title }}
+          <li
+            v-for="track in artist.tracks"
+            :key="track.id"
+            @click="play(track.index)"
+          >
+            {{ track.title }}
           </li>
         </ul>
       </article>
