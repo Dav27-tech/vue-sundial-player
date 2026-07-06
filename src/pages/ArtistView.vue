@@ -29,7 +29,7 @@ const artists = computed(() => {
     <section class="artist-grid">
       <article class="artist-card" v-for="artist in artists" :key="artist.name">
         <div class="artist-avatar" :style="{ background: artist.color }">
-          {{ artists.name.charAt(0) }}
+          {{ artist.name.charAt(0) }}
         </div>
         <h3 class="artist-name">{{ artist.name }}</h3>
         <p class="artist-count">{{ artist.tracks.length }} tracks</p>
